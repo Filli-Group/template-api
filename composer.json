@@ -17,7 +17,7 @@
   },
   "require": {
     "slim/slim": "^3.0",
-    "illuminate/database": "^5.6",
+    "illuminate/database": "^6.0",
     "monolog/monolog": "^1.13",
     "vlucas/phpdotenv": "^3.6",
     "akrabat/ip-address-middleware": "^1.0",
