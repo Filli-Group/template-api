@@ -29,6 +29,10 @@
 $dotenv = Dotenv\Dotenv::create(__DIR__ . '/../');
 $dotenv->load();
 $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS']);
+$dotenv->required(['API_RUNTIME_MODE'])->notEmpty();
+$dotenv->required(['API_APPLICATION_AUTHOR', 'API_APPLICATION_DESCRIPTION', 'API_APPLICATION_NAME', 'API_APPLICATION_OWNER'])->notEmpty();
+$dotenv->required(['API_IMPLEMENTATION_VERSION'])->notEmpty();
+$dotenv->required(['API_SPECIFICATION_VERSION'])->notEmpty();
 
 return [
     'settings' => [
