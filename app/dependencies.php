@@ -50,7 +50,11 @@ $container['logger'] = function ($c) {
     $settings = $c->get('settings');
     $logger = new Monolog\Logger($settings['logger']['name']);
     $logger->pushProcessor(new Monolog\Processor\UidProcessor());
-    $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['logger']['path'], Monolog\Logger::DEBUG));
+    if ($_SERVER['API_RUNTIME_MODE'] == 'Dev') {
+        $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['logger']['path'], Monolog\Logger::DEBUG));
+    } else {
+        $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['logger']['path'], Monolog\Logger::INFO));
+    }
     return $logger;
 };
 

@@ -28,3 +28,4 @@
 
 // Application middleware
 
+$app->add(new RKA\Middleware\IpAddress(true, []));

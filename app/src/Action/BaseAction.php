@@ -31,7 +31,6 @@ namespace App\Action;
 use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Slim\Views\Twig;
 
 final class BaseAction
 {
@@ -44,17 +43,17 @@ final class BaseAction
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $this->logger->info("Base page action dispatched");
+        $this->logger->debug('Base page action dispatched');
 
         $array = [
             'Status' => 'OK',
-            'Runtime-Mode' => '',
-            'Application-Author' => '',
-            'Application-Description' => '',
-            'Specification-Version' => '',
-            'Application-Name' => '',
-            'Implementation-Version' => '',
-            'Application-Owner' => '',
+            'Runtime-Mode' => $_SERVER['API_RUNTIME_MODE'],
+            'Application-Author' => $_SERVER['API_APPLICATION_AUTHOR'],
+            'Application-Description' => $_SERVER['API_APPLICATION_DESCRIPTION'],
+            'Specification-Version' => $_SERVER['API_SPECIFICATION_VERSION'],
+            'Application-Name' => $_SERVER['API_APPLICATION_NAME'],
+            'Implementation-Version' => $_SERVER['API_IMPLEMENTATION_VERSION'],
+            'Application-Owner' => $_SERVER['API_APPLICATION_OWNER'],
         ];
 
         return $response->withJson($array);

@@ -16,9 +16,12 @@
     }
   },
   "require": {
+    "php": "^7.3",
     "slim/slim": "^3.0",
     "illuminate/database": "^5.6",
     "monolog/monolog": "^1.13",
     "vlucas/phpdotenv": "^3.6",
+    "akrabat/ip-address-middleware": "^1.0",
+    "ramsey/uuid": "^3.8"
   }
 }
